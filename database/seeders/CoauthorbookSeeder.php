@@ -28,7 +28,7 @@ class CoauthorbookSeeder extends Seeder
 
                 // Add additional authors to coauthorbook
                 $additionalAuthors = $authors->except([$author->id]);
-                $coauthorbook->authors()->attach($additionalAuthors->random(rand(1, 5))->pluck('id'), [
+                $coauthorbook->authors()->attach($additionalAuthors->random(rand(1, 3))->pluck('id'), [
                     'coauthorbooks_author' => $author->id,
                 ]);
             }

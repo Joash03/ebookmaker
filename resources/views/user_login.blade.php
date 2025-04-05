@@ -52,13 +52,13 @@
 						<div class="card">
 							<div class="row">
                 <div class="col-md-4 pe-md-0">
-                  <div class="authlogin-side-wrapper">
+                  <div class="authlogin-side-wrapper center no-repeat">
 
                   </div>
                 </div>
                 <div class="col-md-8 ps-md-0">
                   <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="noble-ui-logo d-block mb-2">Ebook<span>Maker</span></a>
+                    <a href="{{ url('/') }}" class="noble-ui-logo d-block mb-2">Ebook<span>Maker</span></a>
                     <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
                     <form class="forms-sample" method="post" action="{{ route('login') }}">
                       @csrf
@@ -91,11 +91,16 @@
                           </button>
                       </div>
                       <a href="{{ route('user.register') }}" class="d-block mt-3 text">Not a user? Register</a>
-                  </form>
-                  
+                    </form>
+                    <div  class="row">
+                      <div class="d-block mt-3 text">
+                        <p ><strong>Email:</strong> admin@admin.com<strong> | Password:</strong> 12345</p>
+                        <p ><strong>Email:</strong> author@author.com<strong> | Password:</strong> 12345</p>
+                    </div>
                   </div>
-                </div>
+                </div>              
               </div>
+              </div> 
 						</div>
 					</div>
 				</div>

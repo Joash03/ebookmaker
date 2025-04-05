@@ -43,6 +43,18 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
+//User Auth Middleware
+Route::get('user/login', [UserController::class, 'Login'])->name('user.login');
+Route::get('user/register', [UserController::class, 'Register'])->name('user.register');
+
+Route::get('user/forget/password', [UserController::class, 'ForgetPassword'])->name('user.forget.password');
+Route::post('user/forget/password/email', [UserController::class, 'SendResetLinkEmail'])->name('user.password.email');
+
+Route::get('/reset/password/{token}', [UserController::class, 'ShowResetForm'])->name('reset.password');
+Route::post('/user/password/update', [UserController::class, 'ResetPassword'])->name('new.password.update');
+//End User Auth Middleware
+
+
 //Group Admin Middleware
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -66,18 +78,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     
 }); 
 //End Group Admin Middleware
-
-
-//User Auth Middleware
-Route::get('user/login', [UserController::class, 'Login'])->name('user.login');
-Route::get('user/register', [UserController::class, 'Register'])->name('user.register');
-
-Route::get('user/forget/password', [UserController::class, 'ForgetPassword'])->name('user.forget.password');
-Route::post('user/forget/password/email', [UserController::class, 'SendResetLinkEmail'])->name('user.password.email');
-
-Route::get('/reset/password/{token}', [UserController::class, 'ShowResetForm'])->name('reset.password');
-Route::post('/user/password/update', [UserController::class, 'ResetPassword'])->name('new.password.update');
-//End User Auth Middleware
 
 
 //Group Author Middleware

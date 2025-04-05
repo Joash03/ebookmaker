@@ -38,6 +38,6 @@ class UsersTableSeeder extends Seeder
         ]);
 
         // Create 10 regular users using the factory
-        User::factory()->count(2)->create();
+        User::factory()->count(10)->create();
     }
 }
